@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+	<style type="text/css">
+		
+		body{
+			background: linear-gradient(90deg, grey, white, grey);
+			text-align: center;
+			padding-top: 20px; 
+		}
+		img{
+			margin: auto;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<img src="https://pt.pokerdiscover.com/media/blog/2017/01/rock-paper-scissor-ft-1.jpg">
+	<h1>Rock Paper Scissors</h1>
+<button onClick="buttonPressed(0)">Rock</button>
+<button onClick="buttonPressed(1)">Paper</button>
+<button onClick="buttonPressed(2)">Scissors</button>
+<p id="message">
+
+	
+</p>
+<h2 id="score">Computer : 0 - User : 0 </h2>
+
+<script type="text/javascript">
+	var computerScore = 0;
+	var userScore = 0;
+	function buttonPressed(num){
+		var computerSelection = Math.floor(Math.random()*3);
+		var message = "";
+		if (num == 0){
+			if(computerSelection == 0){
+				message = "Computer select rock. It's a draw!"
+			}
+		    else if (computerSelection== 1){
+		    	message = "Computer select paper. You lose!"
+		    	computerScore++;
+		    }
+		    else {
+		    	message = "Computer select scissors. You win!"
+		    	userScore++;
+		    }
+		}
+		
+		else if (num == 1){
+			if(computerSelection == 0){
+				message = "Computer select rock. You win!"
+				userScore++;
+			}
+		    else if (computerSelection== 1){
+		    	message = "Computer select paper. It's a draw!"
+		    }
+		    else {
+		    	message = "Computer select scissors. You lose!"
+		    	computerScore++;
+		    }
+		}
+		else {
+			if(computerSelection == 0){
+				message = "Computer select rock. You lose!"
+				computerScore++;
+			}
+		    else if (computerSelection== 1){
+		    	message = "Computer select paper. You win!!"
+		    	userScore++;
+		    }
+		    else {
+		    	message = "Computer select scissors. It's a draw!"
+		    }
+		}
+		document.getElementById("message").innerHTML = message;
+		document.getElementById("score").innerHTML = "Computer : " + computerScore + " - User :" +userScore
+	}
+</script>
+</body>
+</html>
